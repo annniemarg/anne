@@ -1,0 +1,273 @@
+# Lesson 2: Container Types
+
+## Lists
+
+Think of lists as simply arrays. You can chose to insert different datatypes in a single list.
+
+
+```python
+fave_fruits = ["apple", "mango", "banana"]
+mixed_list = ["Glenn", 18, 172.72]
+elements = "1,2,3,4,5".split(",")
+```
+
+
+```python
+print(type(fave_fruits))
+print(type(mixed_list))
+print(type(elements))
+```
+
+    <class 'list'>
+    <class 'list'>
+    <class 'list'>
+
+
+#### *Lists Operations*
+
+You may obtain the number of elements in a list by calling the <b>len()</b> function
+
+
+```python
+print(len(fave_fruits))
+```
+
+    3
+
+
+You may access the content of the list by indexing. To do this, you can use the index operator, <code>[]</code>. 
+List index starts at 0.
+
+
+```python
+print(fave_fruits[0])
+```
+
+    apple
+
+
+Negative indeces are allowed! -1 index means the last element.
+
+
+```python
+fave_fruits[-1] = "avocado"
+print(fave_fruits)
+```
+
+    ['apple', 'mango', 'avocado']
+
+
+List slicing is also supported.
+
+
+```python
+print(fave_fruits[2:4])
+```
+
+    ['avocado']
+
+
+You may also append items in the list. The example above shows you that when you added a new list item, it would be added towards the end of list
+
+
+```python
+fave_fruits.append("orange")
+print(fave_fruits[3])
+```
+
+    orange
+
+
+
+```python
+print(len(fave_fruits))
+```
+
+    4
+
+
+
+```python
+fave_fruits.remove("mango")
+print(fave_fruits)
+```
+
+    ['apple', 'avocado', 'orange']
+
+
+#### *List Comprehension*
+
+
+```python
+counting_numbers = [x for x in range(0, 5)]
+print(counting_numbers)
+```
+
+    [0, 1, 2, 3, 4]
+
+
+#### *Slicing*
+
+**NOTE!** <code>list([start]: end : [step])</code>
+
+
+```python
+counting_numbers = [x for x in range(1, 11)]
+print(counting_numbers)
+```
+
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+
+```python
+print(counting_numbers[5:])
+```
+
+    [6, 7, 8, 9, 10]
+
+
+
+```python
+print(counting_numbers[:-2])
+```
+
+    [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+
+```python
+print(counting_numbers[-2:])
+```
+
+    [9, 10]
+
+
+
+```python
+print(counting_numbers[2:-2])
+```
+
+    [3, 4, 5, 6, 7, 8]
+
+
+
+```python
+print(counting_numbers[2:8:2])
+```
+
+    [3, 5, 7]
+
+
+## Tuples
+
+
+```python
+mixed_tuple = ("Glenn", 18, 172.72)
+t = tuple(["A", 1])
+```
+
+It may seem like there are no differences between Tuples and Lists other than Tuples use parenthesis while lists use brackets, but actually there are minor differences. For one thing, Tuples are fixed structures thus do not have the luxury of Lists to append or remove elements. Generally Lists have a lot of other functions readily available as opposed to using Tuples.
+
+
+```python
+mixed_tuple.append("gfabia@gbox.adnu.edu.ph") # This will generate an error!
+```
+
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    AttributeError: 'tuple' object has no attribute 'append'
+
+
+However Tuples actually use less space in the memory as opposed to Lists, resulting in faster processing. One thing to take note of is that one would usually use Tuples when the size of the contents are static as opposed to Lists where one can use it to continuously modify the size and elements.
+
+
+```python
+print(mixed_list)
+print(mixed_list.__sizeof__())
+print(mixed_tuple)
+print(mixed_tuple.__sizeof__())
+```
+
+    ['Glenn', 18, 172.72]
+    64
+    ('Glenn', 18, 172.72)
+    48
+
+
+## Dictionaries
+
+Think of dictionaries as associative arrays. If you have experience in using JavaScript Object Notation or JSON, Python's implementation of Dictionaries are quite similar to that. 
+
+
+```python
+data = { "name": "Glenn", 
+         "age": 18, 
+         "height": 172.72,
+         "fave_fruits": 
+              ["apple", "mango", "banana"]
+       }
+```
+
+
+```python
+print(data)
+```
+
+    {'name': 'Glenn', 'age': 18, 'height': 172.72, 'fave_fruits': ['apple', 'mango', 'banana']}
+
+
+You may also declare contents of dictionaries individually
+
+
+```python
+data = {}
+data["name"] = "Glenn"
+data["age"] = 18
+data["height"] = 172.72
+data["fave_fruits"] =  ["apple", "mango", "banana"]
+```
+
+You may reference an element by inserting the label of the keypair.
+
+
+```python
+print(data["name"])
+```
+
+    Glenn
+
+
+
+```python
+print(data["age"])
+data["age"] = 16
+print(data["age"])
+```
+
+    18
+    16
+
+
+
+```python
+print(data["fave_fruits"][0])
+print(data["fave_fruits"][1])
+
+```
+
+    apple
+    mango
+
+
+
+```python
+data["fave_fruits"][2] = "avocado" 
+```
+
+
+```python
+print(data["fave_fruits"])
+```
+
+    ['apple', 'mango', 'avocado']
