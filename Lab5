@@ -1,0 +1,134 @@
+# Graded Lab Exercise 5: Classes and Objects
+
+In this exercise you will have to demonstrate your skill in creating and using classes in Python as well as your knowledge in the fundamental OOP concepts such as inheritance and polymorphism and how they can be implemented in Python. This assumes that you already have a verified GitHub account and that you have completed Graded Exercise No 1.  
+
+#### Instructions
+
+1. Inside the local Git repo you created in Graded Exercise No 1, create a folder named `exercise5`.
+
+2. Inside the `exercise5` folder, create two files named `dice.py` and `yoursurname_e5.py` (eg, `fabia_e5.py`) containing the following:
+
+   `dice.py`
+
+   ```
+   class Dice:
+   	def __init__(self):
+   		self.sides = 6
+   	
+   	def roll(self):
+   		pass
+   		
+   	def __str__(self):
+   		pass
+   ```
+
+   `yoursurname_e5.py`
+
+   ```
+   import Dice
+   
+   d = Dice()
+   print(d)
+   for i in range(5):
+   	d.roll()
+   
+   ```
+
+   The `pass` statement literally translates to "do nothing" in Python. It's just some placeholder for some future code.
+
+3. In both source files above, also copy and completely fill in the following header info by replacing the contents enclosed in curly braces, `{}`, including the curly braces themselves:
+
+   ```
+   # Author          : {Your complete came}
+   # Course and Year : {Your course and year}
+   # Filename        : {The name of your source file}
+   # Description     : {A brief description of what this program does}
+   # Honor Code      : I have not given nor received any unathorized help in
+   #                   completing this exercise. I am also well aware of the 
+   #                   policies stipulated in the AdNU student handbook.
+   ```
+
+4. Using above source files, create a Python 3 program to solve the following problem:
+
+**Problem**
+
+In `dice.py`, update the definition of the class `Dice` with one attribute called `sides`. In the `__init__()` method, add a parameter which will initialize the value of the attribute `sides`. You can specify any name for this parameter. However, it must have a default value of 6. 
+
+Next, define the method called `roll()`. The latter should print a random integer between 1 and the number of sides the dice has. You will need to use Python's `random` module to completely implement this method. 
+
+Then, override the `__str__()` method so that whenever an object of class `Dice` is printed, it will show some information about the dice in the format: `DICE: s`, where *s* is the value of the attribute `sides`.   
+
+In the same source file, also  define another class named `Tetrahedron` as a child class of the class `Dice`.  The constructor for this class doesn't need any additional parameter, however, it must call `Dice`'s `__init__()` method and pass 4 as an argument. (Recall! A tetrahedron is a regular solid with four faces, hence the value 4). 
+
+Meanwhile, in `yoursurname_e5.py`, add codes to make a 10-sided dice and roll it 5 times, and the codes to create a tetrahedron and roll it 10 times. 
+
+Don't forget to add the necessary import statements in both of these files.
+
+**Input Format**
+
+This exercise does not require any input.
+
+**Output Format**
+
+The output should consists only of 23 lines in the format:
+
+```
+DICE: 6
+X
+X
+X
+X
+X
+DICE: 10
+Y
+Y
+Y
+Y
+Y
+DICE: 4
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+```
+
+where `X`, `Y`, and `Z` are some random integers between 1 and 6, 1 and 10 and 1 and 4 respectively.
+
+**Sample Run**
+
+```
+student@dcs:~/csdc105-n0-fabia/exercise5$ python3 ./fabia_e5.py
+DICE: 6
+5
+3
+4
+5
+2
+DICE: 10
+4
+1
+7
+9
+7
+DICE: 4
+1
+4
+3
+4
+4
+2
+2
+1
+4
+2
+```
+
+5. Sync your local repo with the upstream repo in Github.
+
+6. Turn your submission in Google Classroom by attaching the URL to your Github repo. 
