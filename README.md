@@ -171,6 +171,420 @@ tilix
 	
 	
 	
+	
+	
+	
+	# Lesson 3: Control Statements In Python
+
+## Input and Output Operations
+
+### Reading from STDIN
+
+`read-from-stdin.py`
+
+
+```python
+name = input("What is your name?")
+print (name)
+```
+
+```bash
+python3 ./read-from-stdin.py
+```
+    What is your name? Glenn
+    Glenn
+
+### Reading from the Command Line
+
+`read-from-command-line.py`
+
+```python
+import sys
+
+program_name = sys.argv[0]
+first_argument = sys.argv[1]
+
+print ("Here's the program name   :", program_name)
+print ("Here's the first argument :", first_argument) 
+```
+
+```bash
+python3 ./read-from-command-line.py "Hello"
+```
+
+    Here's the program name   : ./read-from-command-line.py
+    Here's the first argument : Hello
+
+
+## Conditional/Branching Statements
+
+In Python, curly brackets are not used to designate blocks of statements, instead **indentation** is used. Please take note however that the spacing must be uniform. Note that even if 4 spaces are used, which achieves, visually similar result to a single tab, interchanging them would produce an error.
+
+### **if** Statement
+
+#### *Syntax*
+	if <test-expression>:
+	→| <statement-1>
+	→| <statement-2>
+	...
+	→| <statement-n> 
+#### *Examples*
+
+
+```python
+x = 0
+if x == 0:
+    print (x, "is zero")
+```
+
+    0 is zero
+
+
+**NOTE!** There must be a colon <b>(:)</b> on the line where one declares the loop or condition
+
+
+```python
+if x == 0
+    print (x, "is zero") # Error!
+```
+
+
+      File "<stdin>", line 1
+        if x == 0
+                 ^
+    SyntaxError: invalid syntax
+
+
+
+**NOTE!** In Python, correct indentation is very important.
+
+
+```python
+if x == 0:
+print (x, "is zero") # Error!
+```
+
+
+      File "<stdin>", line 1
+        print (x, "is zero") # Error!
+        ^
+    IndentationError: expected an indented block
+
+
+
+### **if-else** Statement
+
+#### *Syntax*
+	if <test-expression>:
+	→| <block-statement(s)>
+	else:
+	→| <alternative-statement(s)> 
+#### *Examples*
+
+
+```python
+if x == 0:
+    print (x, "is zero")
+else:
+    print (x, "is not zero")
+```
+
+    0 is zero
+
+
+
+```python
+msg = "Hello World!"
+
+if msg == 'Hello World!':
+    print("msg is Hello World!")
+else:
+    print("msg is not Hello World!")
+```
+
+    msg is Hello World!
+
+
+### **if-elif** Statement
+
+#### *Syntax*
+	if <test-expression>:
+	→| <block-statement(s)>
+	elif <another-test-expression>:
+	→| <alternative-statement(s)>
+	else:
+	→| <alternative-statement(s)> 
+#### *Examples*
+
+
+```python
+x = 1
+
+if x == 0:
+    print (x, "is zero")
+elif x > 0:
+    print (x, "is positive")
+else:
+    print (x, "is negative")
+```
+
+    1 is positive
+
+
+### Using Compound Conditions
+
+
+```python
+x = 12
+
+if x % 2 == 0 and x % 6 == 0:
+    print(x, "is even and a multiple of 6")
+else:
+    print(x, "is not even or not a multiple of 6")
+```
+
+    12 is even and a multiple of 6
+
+
+## Repetition Statements
+Similar with that of Conditional Statements, commands within a loop are designated by having a uniform spacing.
+
+### **while** Loops
+
+#### *Syntax*
+	while <test-expression>:
+	→| <block-statement(s)>
+#### *Examples*
+Counter-controlled iteration
+
+
+```python
+x = 0
+while x < 10:
+    print("Hello, World!")
+    x = x + 1
+```
+
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+
+
+Sentinel-controlled iteration
+
+
+```python
+answer = input("Enter a word (exit to quit): ")
+while answer.lower() != "exit":
+    print("You entered :", answer)
+    answer = input("Enter a word (exit to quit): ")
+```
+
+    Enter a word (exit to quit):  Ateneo
+    You entered : Ateneo
+    Enter a word (exit to quit):  quit
+    You entered : quit
+    Enter a word (exit to quit):  exit
+
+
+### **for-in** Loops
+for loops works with any container type (String, List, Tuple, Dictionary)
+
+#### *Syntax*
+	for <variable> in <collection>:
+	→| <block-statement(s)>
+#### *Examples*
+
+
+```python
+for letter in "Hello!":
+    print(letter.upper())
+```
+
+    H
+    E
+    L
+    L
+    O
+    !
+
+
+
+```python
+for x in [1, 2, 3, 4, 5]:
+    print(x)
+```
+
+    1
+    2
+    3
+    4
+    5
+
+
+
+```python
+for x in range(5):
+    print(x**2)
+```
+
+    0
+    1
+    4
+    9
+    16
+
+
+
+```python
+for x in range(10):
+    print("Hello, World!")
+```
+
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+
+
+
+```python
+print([x for x in range(10)])
+```
+
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+
+```python
+halo_halo = ["ice", "sago", "gulaman", "langka", "ube"]
+for ingredient in halo_halo:
+    print(ingredient)
+```
+
+	ice
+	sago
+	gulaman
+	langka
+	ube
+
+
+
+Multiple assignments using Tuples is possible in Python
+
+
+```python
+(x, y) = (13, 25)
+```
+
+
+
+You can "convert" a Dictionary to a List (of Tuples) in via `.items()` method
+
+
+```python
+data = {"a" : 10, "b" : 20}
+print(data.items())
+```
+
+    dict_items([('a', 10), ('b', 20)])
+
+
+
+You can test membership using the `in` operator.
+
+
+```python
+("a", 10) in data.items()
+```
+
+
+    True
+
+
+
+
+```python
+("c", 30) in data.items()
+```
+
+
+    False
+
+
+
+So to iterate over a Dictionary, you can do something like:
+
+
+```python
+grades_dict = {"CSDC100": 90, "CSDC101": 95, "CSDC105": 100}
+
+for (course, grade) in grades_dict.items():
+    print(course, grade)
+```
+
+    CSDC100 90
+    CSDC101 95
+    CSDC105 100
+
+
+### Nested Loops
+
+Print a square pattern of asterisks (`*`)
+
+For example:
+
+
+```python
+for r in range(5):
+    for c in range(5):
+        print("*", end="")
+    print()
+```
+
+    *****
+    *****
+    *****
+    *****
+    *****
+
+
+
+```python
+rows = int(input("Enter the number of rows    : "))
+cols = int(input("Enter the number of columns : "))
+
+for r in range(rows):
+    for c in range(cols):
+        print("*", end="")
+    print()
+```
+
+    Enter the number of rows    :  4
+    Enter the number of columns :  10
+
+
+    **********
+    **********
+    **********
+    **********
+
+	
+	
+	
 	# Lesson 4: Functions
 
 ## What are functions?
